@@ -1,0 +1,13 @@
+{
+  "folders": [
+	{
+		"name": "se_project_spots",
+		"path": "."
+	},
+	{
+		"name": "vendor",
+		"path": "../../sprint-2/se_project_coffeeshop/vendor"
+	}
+],
+  "settings": {}
+}
