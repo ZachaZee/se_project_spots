@@ -12,8 +12,12 @@ Spots allows a user to submit images with respect to specific profiles, displaye
 
 - Html
 - Css
-- Responsive Design
+- Responsive Designn
 
 ## Deployment
 
 This page is deployed to Gihub Pages t
+
+### link
+
+https://zachazee.github.io/se_project_spots/index.html
