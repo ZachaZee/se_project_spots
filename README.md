@@ -16,4 +16,4 @@ Spots allows a user to submit images with respect to specific profiles, displaye
 
 ## Deployment
 
-This page is deployed to Gihub Pages
+This page is deployed to Gihub Pages t
