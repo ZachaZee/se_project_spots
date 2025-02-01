@@ -18,6 +18,10 @@ Spots allows a user to submit images with respect to specific profiles, displaye
 
 This page is deployed to Gihub Pages t
 
-### link
+### link to git pages
 
 https://zachazee.github.io/se_project_spots/index.html
+
+### link to spots video
+
+https://drive.google.com/file/d/1-ziw6QOZF9gdlgUXR4gGdzBCvSrfldKN/view?usp=sharing
