@@ -24,4 +24,4 @@ https://zachazee.github.io/se_project_spots/index.html
 
 ### link to spots video
 
-https://drive.google.com/file/d/1-ziw6QOZF9gdlgUXR4gGdzBCvSrfldKN/view?usp=sharing
+https://drive.google.com/file/d/1-ziw6QOZF9gdlgUXR4gGdzBCvSrfldKN/view
