@@ -26,7 +26,7 @@
   position: relative;
 }
 
-.modal__close-button {
+.modal__close-btn {
   position: absolute;
   top: 32px;
   right: 50px;
@@ -51,7 +51,7 @@
 .modal__input {
   padding: 16px 12px;
 }
-.modal__submit-button {
+.modal__submit-btn {
   width: 156px;
   padding: 18px 0;
 }
@@ -70,7 +70,7 @@
     margin: 10px 0 34px;
   }
 
-  .modal__close-button {
+  .modal__close-btn {
     top: 12px;
     right: 12px;
   }
@@ -79,7 +79,7 @@
     margin-bottom: 24px;
   }
 
-  .modal__submit-button {
+  .modal__submit-btn {
     width: 100%;
   }
 }
