@@ -24,6 +24,15 @@
   opacity: 100%;
 }
 
+.card__like-button_liked {
+  background-image: url("../images/like-icon-liked.svg");
+  opacity: 1;
+}
+
+.card__like-button_liked:hover {
+  background-image: url("../images/like-icon-liked-hover.svg");
+}
+
 .card__content {
   margin-top: 12px;
   display: flex;
