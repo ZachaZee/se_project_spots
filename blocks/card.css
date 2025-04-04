@@ -6,6 +6,31 @@
   border-radius: 8px;
 }
 
+.card__container {
+  position: relative;
+}
+
+.card__delete-button {
+  background-image: url("../images/delete-icon.svg");
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: transparent;
+  top: 10px;
+  left: 10px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  left: 371px;
+}
+
+.card__delete-button:hover {
+  background-image: url("../images/delete-icon-hover.svg");
+}
+
 .card__like-button {
   background-image: url(../images/heart.svg);
   width: 23px;
