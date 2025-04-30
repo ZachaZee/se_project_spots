@@ -16,15 +16,13 @@
   height: 32px;
   border: none;
   background-color: transparent;
-  top: 10px;
-  left: 10px;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   cursor: pointer;
   position: absolute;
   top: 10px;
-  left: 371px;
+  right: 10px;
 }
 
 .card__delete-button:hover {
