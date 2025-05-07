@@ -101,19 +101,30 @@
 .modal__label {
   display: flex;
   flex-direction: column;
-  gap: 8px;
   margin-bottom: 32px;
 }
 
 .modal__input {
-  padding: 16px 12px;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 20px;
+  line-height: 1;
+  padding: 16px 12px 16px;
   cursor: pointer;
   border-radius: 8px;
   opacity: 40%;
+  margin: 8px 0 0;
 }
 
 .modal__input:hover {
   opacity: 100%;
+}
+
+.modal__error {
+  display: block;
+  color: red;
+  margin-top: 8px;
+  /* fix color */
 }
 
 .modal__submit-btn {
