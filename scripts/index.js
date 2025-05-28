@@ -42,7 +42,6 @@ const editModalNameInput = editModal.querySelector("#profile-name-input");
 const editModalDescriptionInput = editModal.querySelector(
   "#profile-description-input"
 );
-
 const cardModal = document.querySelector("#add-card-modal");
 const cardForm = cardModal.querySelector(".modal__form");
 const cardSubmitBtn = cardModal.querySelector(".modal__submit-btn");
@@ -96,6 +95,23 @@ function getCardElement(data) {
   return cardElement;
 }
 
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", function (event) {
+    if (event.key === "Escape" || event.key === "Esc") {
+      closeModal(modal);
+    }
+  });
+
+  document.removeEventListener("click", function (event) {
+    if (event.target.closest(".modal_opened")) {
+      if (!event.target.closest(".modal__container" && ".modal__image")) {
+        closeModal(modal);
+      }
+    }
+  });
+}
+
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", function (event) {
@@ -103,11 +119,14 @@ function openModal(modal) {
       closeModal(modal);
     }
   });
-}
 
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown");
+  document.addEventListener("click", function (event) {
+    if (event.target.closest(".modal_opened")) {
+      if (!event.target.closest(".modal__container" && ".modal__image")) {
+        closeModal(modal);
+      }
+    }
+  });
 }
 
 function handleEditFormSubmit(evt) {
