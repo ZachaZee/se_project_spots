@@ -10,14 +10,10 @@ const settings = {
 const setEventListeners = (formEl, config) => {
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
   const buttonElement = formEl.querySelector(config.submitButtonSelector);
-
-  // TODO - handle intitial states
-  //toggleButtonState(inputList, buttonElement);
-
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
       checkInputValidity(formEl, inputElement, config);
-      toggleButtonState(inputList, buttonElement), config;
+      toggleButtonState(inputList, buttonElement, config);
     });
   });
 };
@@ -48,18 +44,18 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-const toggleButtonState = (inputList, buttonEl) => {
+const toggleButtonState = (inputList, buttonEl, config) => {
   if (hasInvalidInput(inputList)) {
-    disableButton(buttonEl);
+    disableButton(buttonEl, config);
   } else {
     buttonEl.disabled = false;
-    //remove disabled class
+    buttonEl.classList.remove(settings.errorClass);
   }
 };
 
 const disableButton = (buttonEl, config) => {
   buttonEl.disabled = true;
-  // Add a modifier class the buttonEl to make it grey CSS
+  buttonEl.classList.add(config.errorClass);
 };
 
 const resetValidation = (formEl, inputList) => {
