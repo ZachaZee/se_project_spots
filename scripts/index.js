@@ -105,8 +105,10 @@ function closeModal(modal) {
 
   document.removeEventListener("click", function (event) {
     if (event.target.closest(".modal_opened")) {
-      if (!event.target.closest(".modal__container" && ".modal__image")) {
-        closeModal(modal);
+      if (!event.target.closest(".modal__container")) {
+        if (!event.target.closest(".modal__image")) {
+          closeModal(modal);
+        }
       }
     }
   });
@@ -122,8 +124,10 @@ function openModal(modal) {
 
   document.addEventListener("click", function (event) {
     if (event.target.closest(".modal_opened")) {
-      if (!event.target.closest(".modal__container" && ".modal__image")) {
-        closeModal(modal);
+      if (!event.target.closest(".modal__container")) {
+        if (!event.target.closest(".modal__image")) {
+          closeModal(modal);
+        }
       }
     }
   });
