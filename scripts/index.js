@@ -144,12 +144,13 @@ function handleEditFormSubmit(evt) {
 }
 
 function handleAddCardSubmit(evt) {
+  const cardSubmitBtnH = querySelector(".modal__submit-btn");
   evt.preventDefault();
   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
   const cardEl = getCardElement(inputValues);
   cardsList.prepend(cardEl);
   evt.target.reset();
-  disableButton(cardSubmitBtn);
+  disableButton(cardSubmitBtnH);
   closeModal(cardModal);
 }
 
