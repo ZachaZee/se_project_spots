@@ -96,22 +96,25 @@ function getCardElement(data) {
 }
 
 function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", function (event) {
-    if (event.key === "Escape" || event.key === "Esc") {
-      closeModal(modal);
-    }
-  });
-
-  document.removeEventListener("click", function (event) {
-    if (event.target.closest(".modal_opened")) {
-      if (!event.target.closest(".modal__container")) {
-        if (!event.target.closest(".modal__image")) {
-          closeModal(modal);
+  modal.classList.add("modal_closing");
+  setTimeout(() => {
+    modal.classList.remove("modal_opened");
+    modal.classList.remove("modal_closing");
+    document.removeEventListener("keydown", function (event) {
+      if (event.key === "Escape" || event.key === "Esc") {
+        closeModal(modal);
+      }
+    });
+    document.removeEventListener("click", function (event) {
+      if (event.target.closest(".modal_opened")) {
+        if (!event.target.closest(".modal__container")) {
+          if (!event.target.closest(".modal__image")) {
+            closeModal(modal);
+          }
         }
       }
-    }
-  });
+    });
+  }, 300);
 }
 
 function openModal(modal) {
