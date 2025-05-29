@@ -30,11 +30,11 @@ const hideInputError = (formEl, inputEl, errorMsg, config) => {
   inputEl.classList.remove(config.inputErrorClass);
 };
 
-const checkInputValidity = (formEl, inputEl) => {
+const checkInputValidity = (formEl, inputEl, config) => {
   if (!inputEl.validity.valid) {
-    showInputError(formEl, inputEl, inputEl.validationMessage, settings);
+    showInputError(formEl, inputEl, inputEl.validationMessage, config);
   } else {
-    hideInputError(formEl, inputEl, inputEl.validationMessage, settings);
+    hideInputError(formEl, inputEl, inputEl.validationMessage, config);
   }
 };
 
@@ -49,13 +49,13 @@ const toggleButtonState = (inputList, buttonEl, config) => {
     disableButton(buttonEl, config);
   } else {
     buttonEl.disabled = false;
-    buttonEl.classList.remove(settings.errorClass);
+    buttonEl.classList.remove(config.errorClass);
   }
 };
 
-const disableButton = (buttonEl, config) => {
+const disableButton = (buttonEl) => {
+  buttonEl.classList.add(settings.errorClass);
   buttonEl.disabled = true;
-  buttonEl.classList.add(config.errorClass);
 };
 
 const resetValidation = (formEl, inputList) => {
