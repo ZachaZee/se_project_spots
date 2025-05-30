@@ -2,7 +2,7 @@ const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit-btn",
-  inactiveButtonClass: "modal__button_disabled",
+  inactiveButtonClass: "modal__submit-btn_disabled",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal_error_visible",
 };
@@ -24,7 +24,7 @@ const showInputError = (formEl, inputEl, errorMsg, config) => {
   inputEl.classList.add(config.inputErrorClass);
 };
 
-const hideInputError = (formEl, inputEl, errorMsg, config) => {
+const hideInputError = (formEl, inputEl, config) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMsgEl.textContent = "";
   inputEl.classList.remove(config.inputErrorClass);
@@ -34,7 +34,7 @@ const checkInputValidity = (formEl, inputEl, config) => {
   if (!inputEl.validity.valid) {
     showInputError(formEl, inputEl, inputEl.validationMessage, config);
   } else {
-    hideInputError(formEl, inputEl, inputEl.validationMessage, config);
+    hideInputError(formEl, inputEl, config);
   }
 };
 
@@ -49,12 +49,12 @@ const toggleButtonState = (inputList, buttonEl, config) => {
     disableButton(buttonEl, config);
   } else {
     buttonEl.disabled = false;
-    buttonEl.classList.remove(config.errorClass);
+    buttonEl.classList.remove(config.inactiveButtonClass);
   }
 };
 
-const disableButton = (buttonEl) => {
-  buttonEl.classList.add(settings.errorClass);
+const disableButton = (buttonEl, config) => {
+  buttonEl.classList.add(config.inactiveButtonClass);
   buttonEl.disabled = true;
 };
 

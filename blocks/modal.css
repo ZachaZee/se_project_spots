@@ -19,7 +19,6 @@
 .modal_type_preview {
   padding: 0 16px;
 }
-
 .modal_opened {
   visibility: visible;
   opacity: 1;
@@ -148,7 +147,7 @@
   color: #fcf5e5;
 }
 
-.modal_error_visible {
+.modal__submit-btn_disabled {
   background-color: rgba(33, 33, 33, 0.5);
 }
 

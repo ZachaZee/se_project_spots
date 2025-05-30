@@ -52,22 +52,25 @@ const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
+const previewModal = document.querySelector("#preview-modal");
+const previewModalImageEl = previewModal.querySelector(".modal__image");
+const previewModalCaption = previewModal.querySelector(".modal__caption");
+const previewModalCloseButton = previewModal.querySelector(
+  ".modal__close-btn_type_preview"
+);
+
 function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
     .cloneNode(true);
+  previewModalCloseButton.addEventListener("click", () => {
+    closeModal(previewModal);
+  });
 
   const cardNameEl = cardElement.querySelector(".card__title");
   const cardSrcEl = cardElement.querySelector(".card__image");
   const cardLikeButton = cardElement.querySelector(".card__like-button");
   const cardDeleteButton = cardElement.querySelector(".card__delete-button");
-
-  const previewModal = document.querySelector("#preview-modal");
-  const previewModalImageEl = previewModal.querySelector(".modal__image");
-  const previewModalCaption = previewModal.querySelector(".modal__caption");
-  const previewModalCloseButton = previewModal.querySelector(
-    ".modal__close-btn_type_preview"
-  );
 
   cardNameEl.textContent = data.name;
   cardSrcEl.src = data.link;
@@ -78,10 +81,6 @@ function getCardElement(data) {
     previewModalImageEl.src = data.link;
     previewModalImageEl.alt = data.name;
     previewModalCaption.textContent = data.name;
-  });
-
-  previewModalCloseButton.addEventListener("click", () => {
-    closeModal(previewModal);
   });
 
   cardLikeButton.addEventListener("click", () => {
@@ -97,43 +96,30 @@ function getCardElement(data) {
 
 function closeModal(modal) {
   modal.classList.add("modal_closing");
-  setTimeout(() => {
-    modal.classList.remove("modal_opened");
-    modal.classList.remove("modal_closing");
-    document.removeEventListener("keydown", function (event) {
-      if (event.key === "Escape" || event.key === "Esc") {
-        closeModal(modal);
-      }
-    });
-    document.removeEventListener("click", function (event) {
-      if (event.target.closest(".modal_opened")) {
-        if (!event.target.closest(".modal__container")) {
-          if (!event.target.closest(".modal__image")) {
-            closeModal(modal);
-          }
-        }
-      }
-    });
-  }, 300);
+  modal.classList.remove("modal_opened");
+  modal.classList.remove("modal_closing");
+  document.removeEventListener("keydown", escapePressed);
 }
 
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape" || event.key === "Esc") {
+function escapePressed(evt) {
+  if (evt.key === "Escape") {
+    const modalCurrentlyOpen = document.querySelector(".modal_opened");
+    closeModal(modalCurrentlyOpen);
+  }
+}
+
+const modals = document.querySelectorAll(".modal");
+modals.forEach((modal) => {
+  modal.addEventListener("mousedown", (e) => {
+    if (e.target === modal) {
       closeModal(modal);
     }
   });
+});
 
-  document.addEventListener("click", function (event) {
-    if (event.target.closest(".modal_opened")) {
-      if (!event.target.closest(".modal__container")) {
-        if (!event.target.closest(".modal__image")) {
-          closeModal(modal);
-        }
-      }
-    }
-  });
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+  document.addEventListener("keydown", escapePressed);
 }
 
 function handleEditFormSubmit(evt) {
