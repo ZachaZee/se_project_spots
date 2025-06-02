@@ -63,9 +63,6 @@ function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
     .cloneNode(true);
-  previewModalCloseButton.addEventListener("click", () => {
-    closeModal(previewModal);
-  });
 
   const cardNameEl = cardElement.querySelector(".card__title");
   const cardSrcEl = cardElement.querySelector(".card__image");
@@ -98,10 +95,10 @@ function closeModal(modal) {
   modal.classList.add("modal_closing");
   modal.classList.remove("modal_opened");
   modal.classList.remove("modal_closing");
-  document.removeEventListener("keydown", escapePressed);
+  document.removeEventListener("keydown", handleEscape);
 }
 
-function escapePressed(evt) {
+function handleEscape(evt) {
   if (evt.key === "Escape") {
     const modalCurrentlyOpen = document.querySelector(".modal_opened");
     closeModal(modalCurrentlyOpen);
@@ -119,7 +116,7 @@ modals.forEach((modal) => {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
-  document.addEventListener("keydown", escapePressed);
+  document.addEventListener("keydown", handleEscape);
 }
 
 function handleEditFormSubmit(evt) {
@@ -165,6 +162,10 @@ cardModalCloseBtn.addEventListener("click", () => {
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
+
+previewModalCloseButton.addEventListener("click", () => {
+  closeModal(previewModal);
+});
 
 initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
