@@ -152,6 +152,23 @@
   background-color: rgba(33, 33, 33, 0.5);
 }
 
+.modal__submit-btn:hover {
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.modal__submit-btn_disabled {
+  background-color: rgba(33, 33, 33, 0.5);
+  cursor: not-allowed;
+}
+
+.modal__submit-btn_type_cancel {
+  background-color: transparent;
+  color: #212121;
+  border: 1px solid #212121;
+  margin-top: 12px;
+}
+
 @media screen and (max-width: 480px) {
   .modal__container {
     padding: 2px 12px 12px;

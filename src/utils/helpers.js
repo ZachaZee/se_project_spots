@@ -1,12 +1,10 @@
-export function setButtonText(
-  btn,
-  isLoading,
-  defaultText = "Save",
-  loadingText = "Saving...",
-) {
+export function setButtonText(button, isLoading, loadingText = "Saving...") {
   if (isLoading) {
-    btn.textContent = loadingText;
+    // Store original text to revert back later
+    button.dataset.originalText = button.textContent;
+    button.textContent = loadingText;
   } else {
-    btn.textContent = defaultText;
+    // Revert to original text
+    button.textContent = button.dataset.originalText || "Save";
   }
 }
