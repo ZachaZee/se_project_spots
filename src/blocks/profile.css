@@ -8,8 +8,31 @@
   margin-left: auto;
 }
 
+.profile__avatar-container {
+  position: relative;
+  margin-left: 20px;
+}
+
+.profile__avatar-btn {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  visibility: hidden;
+}
+
+.profile__avatar-container:hover .profile__avatar-btn {
+  visibility: visible;
+}
+
+.profile__avatar-btn::after {
+  content: "Edit Avatar";
+}
+
 .profile__avatar {
-  margin-right: 20px;
   width: 190px;
   height: 190px;
   border-radius: 8px;
@@ -80,6 +103,7 @@
   opacity: 80%;
 }
 
+/* mobile button styled TODO */
 @media screen and (max-width: 627px) {
   .profile {
     flex-direction: column;
@@ -95,11 +119,16 @@
     margin-bottom: 32px;
     text-align: center;
   }
-
+  .profile__avatar-btn::after {
+    content: "";
+  }
   .profile__avatar {
     margin: 0 0 12px;
     height: 80px;
     width: 80px;
+  }
+  .profile__avatar-btn {
+    visibility: visible;
   }
   .profile__name {
     font-size: 20px;
