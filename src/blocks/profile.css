@@ -109,7 +109,6 @@
   opacity: 80%;
 }
 
-/* mobile button styled TODO */
 @media screen and (max-width: 627px) {
   .profile {
     flex-direction: column;
